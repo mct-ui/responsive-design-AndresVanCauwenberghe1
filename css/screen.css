@@ -214,6 +214,11 @@ a:focus {
         padding-right: 48px;
     }
 
+    .o-row--md {
+        padding-top: 48px;
+        padding-bottom: 24px;
+    }
+
     .o-row--lg {
         padding-top: 72px;
         padding-bottom: 48px;
@@ -231,7 +236,7 @@ a:focus {
     margin-right: auto;
     width: 100%;
     max-width: 90em; /* 90 * 16px = 1440px */
-    max-width: 56.4;
+    max-width: 56.4em;
 }
 
 /*
@@ -352,6 +357,33 @@ a:focus {
 }
 
 /*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.o-section + .o-section {
+    margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+        margin-top: 48px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .o-section--xl + .o-section--xl {
+        margin-top: 72px;
+    }
+}
+/*
     Objects: List
     ---
     Small reusable object to remove default list styling from lists
@@ -405,7 +437,7 @@ a:focus {
     color: #6c6c75;
 }
 
-.is_current;
+.is_current,
 .c_nav__link,
 .c-nav__link:hover,
 .c-nav__link:focus {
@@ -417,7 +449,7 @@ a:focus {
     .c-nav__list {
         display: flex;
         margin-left: -16px;
-        margin right: -16px;
+        margin-right: -16px;
     }
 
     .c-nav__link {
@@ -425,6 +457,26 @@ a:focus {
     }
 }
 
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .c-header__nav {
+        display: block;
+    }
+}
 
 /*------------------------------------*\
   #UTILITIES
@@ -658,6 +710,17 @@ a:focus {
         width: 83.3333333333% !important;
     }
 }
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+
 
 /*------------------------------------*\
   #MEDIA
